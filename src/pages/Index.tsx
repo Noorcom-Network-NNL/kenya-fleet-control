@@ -27,6 +27,13 @@ const Index = () => {
     setFormData({ name: '', email: '', company: '', phone: '', fleetSize: '', message: '' });
   };
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const features = [
     {
       icon: MapPin,
@@ -145,7 +152,7 @@ const Index = () => {
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
               <img 
-                src="/lovable-uploads/b6ff6456-99bc-4d08-904e-8266015602ef.png" 
+                src="/lovable-uploads/d38b7c2c-9b80-4d7b-ad9c-c137b30b3ec2.png" 
                 alt="Noorcom - Precision in Motion" 
                 className="h-12 w-auto"
               />
@@ -156,7 +163,10 @@ const Index = () => {
               <a href="#testimonials" className="text-gray-600 hover:text-blue-600 transition-colors">Testimonials</a>
               <a href="#contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
             </nav>
-            <Button className="bg-gradient-to-r from-blue-600 to-red-600 hover:from-blue-700 hover:to-red-700">
+            <Button 
+              onClick={scrollToContact}
+              className="bg-gradient-to-r from-blue-600 to-red-600 hover:from-blue-700 hover:to-red-700"
+            >
               Request Demo
             </Button>
           </div>
@@ -179,7 +189,11 @@ const Index = () => {
                 Built specifically for Kenyan transport and logistics companies.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+                <Button 
+                  size="lg" 
+                  onClick={scrollToContact}
+                  className="bg-white text-blue-600 hover:bg-gray-100"
+                >
                   <Phone className="w-5 h-5 mr-2" />
                   Get Free Demo
                 </Button>
@@ -500,7 +514,7 @@ const Index = () => {
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <img 
-                  src="/lovable-uploads/b6ff6456-99bc-4d08-904e-8266015602ef.png" 
+                  src="/lovable-uploads/d38b7c2c-9b80-4d7b-ad9c-c137b30b3ec2.png" 
                   alt="Noorcom - Precision in Motion" 
                   className="h-10 w-auto"
                 />
