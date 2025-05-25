@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -146,14 +145,10 @@ const Index = () => {
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
               <img 
-                src="/lovable-uploads/f784b34b-6005-4319-b5b7-531938601c52.png" 
-                alt="Noorcom Logo" 
-                className="h-10 w-auto"
+                src="/lovable-uploads/b6ff6456-99bc-4d08-904e-8266015602ef.png" 
+                alt="Noorcom - Precision in Motion" 
+                className="h-12 w-auto"
               />
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">Noorcom</h1>
-                <p className="text-xs text-gray-600">Fleet Management Solutions</p>
-              </div>
             </div>
             <nav className="hidden md:flex space-x-8">
               <a href="#features" className="text-gray-600 hover:text-blue-600 transition-colors">Features</a>
@@ -494,11 +489,10 @@ const Index = () => {
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <img 
-                  src="/lovable-uploads/f784b34b-6005-4319-b5b7-531938601c52.png" 
-                  alt="Noorcom Logo" 
-                  className="h-8 w-auto"
+                  src="/lovable-uploads/b6ff6456-99bc-4d08-904e-8266015602ef.png" 
+                  alt="Noorcom - Precision in Motion" 
+                  className="h-10 w-auto"
                 />
-                <span className="text-xl font-bold">Noorcom</span>
               </div>
               <p className="text-gray-400">
                 Leading fleet management solutions for Kenyan businesses.
