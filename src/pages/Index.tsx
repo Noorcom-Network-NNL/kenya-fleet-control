@@ -398,7 +398,17 @@ const Index = () => {
                   </div>
                   <div>
                     <p className="font-semibold">Call Us</p>
-                    <p className="text-blue-100">+254 700 123 456</p>
+                    <p className="text-blue-100">+254 722 723 362</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                    <Phone className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">WhatsApp</p>
+                    <p className="text-blue-100">+254 785 626 120</p>
                   </div>
                 </div>
                 
@@ -408,7 +418,7 @@ const Index = () => {
                   </div>
                   <div>
                     <p className="font-semibold">Email Us</p>
-                    <p className="text-blue-100">info@noorcom.co.ke</p>
+                    <p className="text-blue-100">info@noorcomfleet.co.ke</p>
                   </div>
                 </div>
                 
@@ -418,7 +428,8 @@ const Index = () => {
                   </div>
                   <div>
                     <p className="font-semibold">Visit Us</p>
-                    <p className="text-blue-100">Nairobi, Kenya</p>
+                    <p className="text-blue-100">Chuka Elimu Plaza, 1st Floor</p>
+                    <p className="text-blue-100">Loita Street, Nairobi</p>
                   </div>
                 </div>
               </div>
@@ -497,6 +508,21 @@ const Index = () => {
               <p className="text-gray-400">
                 Leading fleet management solutions for Kenyan businesses.
               </p>
+              <div className="mt-4 space-y-2">
+                <p className="text-sm text-gray-400">
+                  <strong>Email:</strong> info@noorcomfleet.co.ke
+                </p>
+                <p className="text-sm text-gray-400">
+                  <strong>Phone:</strong> +254 722 723 362
+                </p>
+                <p className="text-sm text-gray-400">
+                  <strong>WhatsApp:</strong> +254 785 626 120
+                </p>
+                <p className="text-sm text-gray-400">
+                  <strong>Address:</strong> Chuka Elimu Plaza, 1st Floor<br />
+                  Loita Street, Nairobi
+                </p>
+              </div>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Product</h4>
