@@ -6,6 +6,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Truck, MapPin, Fuel, Users, Shield, TrendingUp, Check, Star, Phone, Mail, Clock } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -146,94 +149,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-3">
-              <img 
-                src="/lovable-uploads/d38b7c2c-9b80-4d7b-ad9c-c137b30b3ec2.png" 
-                alt="Noorcom - Precision in Motion" 
-                className="h-12 w-auto"
-              />
-            </div>
-            <nav className="hidden md:flex space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-blue-600 transition-colors">Features</a>
-              <a href="#pricing" className="text-gray-600 hover:text-blue-600 transition-colors">Pricing</a>
-              <a href="#testimonials" className="text-gray-600 hover:text-blue-600 transition-colors">Testimonials</a>
-              <a href="#contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
-            </nav>
-            <Button 
-              onClick={scrollToContact}
-              className="bg-gradient-to-r from-blue-600 to-red-600 hover:from-blue-700 hover:to-red-700"
-            >
-              Request Demo
-            </Button>
-          </div>
-        </div>
-      </header>
-
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-red-600 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Badge className="bg-white/20 text-white border-white/30 mb-6">
-                🇰🇪 Made for Kenyan Businesses
-              </Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-                Transform Your Fleet Management
-              </h1>
-              <p className="text-xl text-blue-100 mb-8">
-                Complete fleet management solution with real-time tracking, fuel monitoring, and driver management. 
-                Built specifically for Kenyan transport and logistics companies.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
-                  onClick={scrollToContact}
-                  className="bg-white text-blue-600 hover:bg-gray-100"
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  Get Free Demo
-                </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                  <TrendingUp className="w-5 h-5 mr-2" />
-                  View Features
-                </Button>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-blue-100">Fleet Overview</span>
-                    <Badge className="bg-green-500">Live</Badge>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white/20 rounded-lg p-4">
-                      <p className="text-blue-100 text-sm">Active Vehicles</p>
-                      <p className="text-2xl font-bold">147</p>
-                    </div>
-                    <div className="bg-white/20 rounded-lg p-4">
-                      <p className="text-blue-100 text-sm">Fuel Saved</p>
-                      <p className="text-2xl font-bold">25%</p>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    {["KBY 123A - Nairobi to Mombasa", "KCA 456B - CBD Route", "KAB 012D - Thika Highway"].map((route, i) => (
-                      <div key={i} className="flex items-center gap-2 text-sm">
-                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                        <span className="text-blue-100">{route}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Header onRequestDemo={scrollToContact} />
+      <HeroSection onGetDemo={scrollToContact} />
 
       {/* Features Section */}
       <section id="features" className="py-20 bg-gray-50">
@@ -507,66 +424,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <img 
-                  src="/lovable-uploads/d38b7c2c-9b80-4d7b-ad9c-c137b30b3ec2.png" 
-                  alt="Noorcom - Precision in Motion" 
-                  className="h-10 w-auto"
-                />
-              </div>
-              <p className="text-gray-400">
-                Leading fleet management solutions for Kenyan businesses.
-              </p>
-              <div className="mt-4 space-y-2">
-                <p className="text-sm text-gray-400">
-                  <strong>Email:</strong> info@noorcomfleet.co.ke
-                </p>
-                <p className="text-sm text-gray-400">
-                  <strong>Phone:</strong> +254 722 723 362
-                </p>
-                <p className="text-sm text-gray-400">
-                  <strong>WhatsApp:</strong> +254 785 626 120
-                </p>
-                <p className="text-sm text-gray-400">
-                  <strong>Address:</strong> Chuka Elimu Plaza, 1st Floor<br />
-                  Loita Street, Nairobi
-                </p>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Demo</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Support</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Noorcom Fleet Management Systems. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
