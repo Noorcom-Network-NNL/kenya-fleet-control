@@ -7,9 +7,14 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ className = "" }) => {
   return (
-    <div className={`font-bold text-2xl ${className}`}>
-      <span className="text-red-600">NOOR</span>
-      <span className="text-black">COM</span>
+    <div className={`${className}`}>
+      <div className="font-bold text-2xl">
+        <span className="text-red-600">NOOR</span>
+        <span className="text-black">COM</span>
+      </div>
+      <div className="text-sm text-gray-600 font-medium">
+        Fleet management
+      </div>
     </div>
   );
 };
