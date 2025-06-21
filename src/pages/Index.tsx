@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -82,13 +83,13 @@ const Index = () => {
   const testimonials = [
     {
       name: "James Mwangi",
-      company: "Nairobi Express Logistics",
+      company: "Kenya Medical Supplies Authority",
       text: "NFMS has transformed our operations. We've reduced fuel costs by 23% and improved our delivery times significantly.",
       rating: 5
     },
     {
       name: "Sarah Kiprotich",
-      company: "Highland Transport SACCO",
+      company: "Isiolo Technical Training Institute",
       text: "The system is user-friendly and the support team is excellent. Our drivers love the mobile app interface.",
       rating: 5
     },
