@@ -22,9 +22,6 @@ const Footer: React.FC = () => {
                 <strong>Phone:</strong> +254 722 723 362
               </p>
               <p className="text-sm text-gray-400">
-                <strong>WhatsApp:</strong> +254 785 626 120
-              </p>
-              <p className="text-sm text-gray-400">
                 <strong>Address:</strong> Chuka Elimu Plaza, 1st Floor<br />
                 Loita Street, Nairobi
               </p>

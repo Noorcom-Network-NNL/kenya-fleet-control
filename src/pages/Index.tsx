@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -331,16 +330,6 @@ const Index = () => {
                   <div>
                     <p className="font-semibold">Call Us</p>
                     <p className="text-blue-100">+254 722 723 362</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="font-semibold">WhatsApp</p>
-                    <p className="text-blue-100">+254 785 626 120</p>
                   </div>
                 </div>
                 
