@@ -8,46 +8,49 @@ import { Check } from 'lucide-react';
 const PricingSection: React.FC = () => {
   const pricingPlans = [
     {
-      name: "Basic",
-      vehicles: "1-5 Vehicles",
-      price: "KES 3,000",
+      name: "Essential Tracking",
+      subtitle: "Basic Plan",
+      price: "KES 8,500",
       period: "per month",
+      target: "Startups and small fleet owners looking for simple tracking",
       features: [
-        "GPS tracking",
-        "Basic fuel logging",
-        "Driver management",
-        "Mobile app access",
-        "Email support"
+        "GPS Tracking",
+        "Basic Fuel Logging",
+        "Driver Management",
+        "Mobile App Access",
+        "Email Notifications",
+        "Get Started Support"
       ],
       popular: false
     },
     {
-      name: "Standard",
-      vehicles: "6-20 Vehicles",
-      price: "KES 10,000",
+      name: "Advanced Tracking",
+      subtitle: "Standard Plan",
+      price: "KES 9,500",
       period: "per month",
+      target: "Medium-sized fleets needing more analytics and proactive maintenance",
       features: [
-        "All Basic features",
-        "Advanced analytics",
-        "Maintenance scheduling",
-        "Geofencing alerts",
-        "Phone support",
-        "Custom reports"
+        "All Basic Plan Features",
+        "Advanced Analytics (Reports & Insights)",
+        "Maintenance Scheduling (Alerts on vehicle servicing needs)",
+        "Conference Alerts (Notifications for critical events)",
+        "Phone Support",
+        "Custom Reports"
       ],
       popular: true
     },
     {
-      name: "Pro",
-      vehicles: "21+ Vehicles",
-      price: "Custom",
-      period: "pricing",
+      name: "Premium Tracking & API Integration",
+      subtitle: "Supreme Plan",
+      price: "KES 13,950",
+      period: "per month",
+      target: "Large fleets, corporates, and enterprises needing API integration",
       features: [
-        "All Standard features",
-        "API integrations",
-        "Dedicated support",
-        "Custom development",
-        "On-site training",
-        "24/7 monitoring"
+        "All Standard Plan Features",
+        "API Integrations (Integrate with client ERP or 3rd party apps)",
+        "Dedicated Support Engineer",
+        "Operation Center Setup (Optional)",
+        "24/7 Monitoring"
       ],
       popular: false
     }
@@ -75,7 +78,8 @@ const PricingSection: React.FC = () => {
               )}
               <CardHeader className="text-center">
                 <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
-                <CardDescription className="text-gray-600">{plan.vehicles}</CardDescription>
+                <CardDescription className="text-gray-600 mb-2">{plan.subtitle}</CardDescription>
+                <p className="text-sm text-gray-500 mb-4">{plan.target}</p>
                 <div className="mt-4">
                   <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
                   <span className="text-gray-600">/{plan.period}</span>
@@ -93,7 +97,7 @@ const PricingSection: React.FC = () => {
                 <Button 
                   className={`w-full ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-900 hover:bg-gray-800'}`}
                 >
-                  {plan.name === "Pro" ? "Contact Sales" : "Get Started"}
+                  {plan.subtitle === "Supreme Plan" ? "Contact Sales" : "Get Started"}
                 </Button>
               </CardContent>
             </Card>
