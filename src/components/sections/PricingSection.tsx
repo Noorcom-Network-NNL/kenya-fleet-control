@@ -10,7 +10,7 @@ const PricingSection: React.FC = () => {
     {
       name: "Essential Tracking",
       subtitle: "Basic Plan",
-      price: "KES 8,500",
+      price: "KES 3,500",
       period: "per month",
       target: "Startups and small fleet owners looking for simple tracking",
       features: [
@@ -19,30 +19,32 @@ const PricingSection: React.FC = () => {
         "Driver Management",
         "Mobile App Access",
         "Email Notifications",
-        "Get Started Support"
+        "Free Installation",
+        "1 Year Free Software"
       ],
       popular: false
     },
     {
       name: "Advanced Tracking",
-      subtitle: "Standard Plan",
-      price: "KES 9,500",
+      subtitle: "Standard Plan", 
+      price: "KES 5,500",
       period: "per month",
       target: "Medium-sized fleets needing more analytics and proactive maintenance",
       features: [
         "All Basic Plan Features",
         "Advanced Analytics (Reports & Insights)",
         "Maintenance Scheduling (Alerts on vehicle servicing needs)",
-        "Conference Alerts (Notifications for critical events)",
+        "Geofencing & Alerts (Notifications for critical events)",
         "Phone Support",
-        "Custom Reports"
+        "Custom Reports",
+        "Real-time Notifications"
       ],
       popular: true
     },
     {
       name: "Premium Tracking & API Integration",
       subtitle: "Supreme Plan",
-      price: "KES 13,950",
+      price: "KES 10,500",
       period: "per month",
       target: "Large fleets, corporates, and enterprises needing API integration",
       features: [
@@ -50,7 +52,9 @@ const PricingSection: React.FC = () => {
         "API Integrations (Integrate with client ERP or 3rd party apps)",
         "Dedicated Support Engineer",
         "Operation Center Setup (Optional)",
-        "24/7 Monitoring"
+        "24/7 Monitoring",
+        "Custom Development",
+        "On-site Training"
       ],
       popular: false
     }
