@@ -15,14 +15,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onGetDemo }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <Badge className="bg-white/20 text-white border-white/30 mb-6">
-              🇰🇪 Made for Kenyan Businesses
+              🇰🇪 Kenya's Most Trusted Fleet Tracker
             </Badge>
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              Transform Your Fleet Management
+              Professional GPS Tracking & Fleet Management
             </h1>
             <p className="text-xl text-blue-100 mb-8">
-              Complete fleet management solution with real-time tracking, fuel monitoring, and driver management. 
-              Built specifically for Kenyan transport and logistics companies.
+              Premium Teltonika devices with FREE installation, 1-year free software, and 24/7 support. 
+              Join 400+ Kenyan businesses already saving 25% on fuel costs with our proven solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
