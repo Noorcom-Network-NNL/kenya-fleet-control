@@ -5,7 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin } from 'lucide-react';
-import { useToast } from "@/hooks/use-toast";
+import { collection, addDoc, Timestamp } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
+import { toast } from 'sonner';
 
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -16,15 +18,28 @@ const ContactSection: React.FC = () => {
     fleetSize: '',
     message: ''
   });
-  const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Demo Request Submitted!",
-      description: "Our team will contact you within 24 hours to schedule your personalized demo.",
-    });
-    setFormData({ name: '', email: '', company: '', phone: '', fleetSize: '', message: '' });
+    setLoading(true);
+
+    try {
+      await addDoc(collection(db, 'enquiries'), {
+        ...formData,
+        status: 'new',
+        source: 'contact_form',
+        createdAt: Timestamp.now(),
+      });
+
+      toast.success('Demo request submitted successfully! Our team will contact you within 24 hours.');
+      setFormData({ name: '', email: '', company: '', phone: '', fleetSize: '', message: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('Failed to submit request. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -121,8 +136,12 @@ const ContactSection: React.FC = () => {
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                   rows={4}
                 />
-                <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-red-600 hover:from-blue-700 hover:to-red-700">
-                  Request Demo
+                <Button 
+                  type="submit" 
+                  className="w-full bg-gradient-to-r from-blue-600 to-red-600 hover:from-blue-700 hover:to-red-700"
+                  disabled={loading}
+                >
+                  {loading ? 'Submitting...' : 'Request Demo'}
                 </Button>
               </form>
             </CardContent>
