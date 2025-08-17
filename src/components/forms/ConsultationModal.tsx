@@ -5,8 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { addDoc, collection, Timestamp } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
+import { supabase } from '@/lib/supabase';
 import { toast } from 'sonner';
 
 interface ConsultationModalProps {
@@ -41,12 +40,16 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
         ...formData,
         status: 'new',
         source,
-        createdAt: Timestamp.now(),
+        created_at: new Date().toISOString(),
       };
       
       console.log('Final consultation data to submit:', consultationData);
       
-      await addDoc(collection(db, 'consultations'), consultationData);
+      const { error } = await supabase
+        .from('consultations')
+        .insert([consultationData]);
+      
+      if (error) throw error;
 
       console.log('Consultation submitted successfully');
       toast.success('Consultation request submitted successfully! We will contact you soon.');

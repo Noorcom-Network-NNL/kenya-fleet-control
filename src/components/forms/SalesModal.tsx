@@ -5,8 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { addDoc, collection, Timestamp } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
+import { supabase } from '@/lib/supabase';
 import { toast } from 'sonner';
 
 interface SalesModalProps {
@@ -53,12 +52,16 @@ const SalesModal: React.FC<SalesModalProps> = ({
         ...formData,
         status: 'new',
         source,
-        createdAt: Timestamp.now(),
+        created_at: new Date().toISOString(),
       };
       
       console.log('Final sales data to submit:', salesData);
       
-      await addDoc(collection(db, 'sales'), salesData);
+      const { error } = await supabase
+        .from('sales')
+        .insert([salesData]);
+      
+      if (error) throw error;
 
       const message = formData.requestType === 'product-enquiry' 
         ? 'Product enquiry submitted successfully! Our sales team will contact you soon.'
