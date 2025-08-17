@@ -25,6 +25,7 @@ const ContactSection: React.FC = () => {
     setLoading(true);
 
     try {
+      console.log('Submitting form data:', formData);
       await addDoc(collection(db, 'enquiries'), {
         ...formData,
         status: 'new',
@@ -32,6 +33,7 @@ const ContactSection: React.FC = () => {
         createdAt: Timestamp.now(),
       });
 
+      console.log('Form submitted successfully');
       toast.success('Demo request submitted successfully! Our team will contact you within 24 hours.');
       setFormData({ name: '', email: '', company: '', phone: '', fleetSize: '', message: '' });
     } catch (error) {
