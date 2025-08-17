@@ -100,6 +100,21 @@ const PricingSection: React.FC = () => {
                 </ul>
                 <Button 
                   className={`w-full ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-900 hover:bg-gray-800'}`}
+                  onClick={() => {
+                    if (plan.subtitle === "Supreme Plan") {
+                      // For supreme plan, open sales modal for contact
+                      const event = new CustomEvent('openSalesModal', { 
+                        detail: { planName: plan.name, source: 'pricing' } 
+                      });
+                      window.dispatchEvent(event);
+                    } else {
+                      // For other plans, open sales modal for getting started
+                      const event = new CustomEvent('openSalesModal', { 
+                        detail: { planName: plan.name, source: 'pricing' } 
+                      });
+                      window.dispatchEvent(event);
+                    }
+                  }}
                 >
                   {plan.subtitle === "Supreme Plan" ? "Contact Sales" : "Get Started"}
                 </Button>

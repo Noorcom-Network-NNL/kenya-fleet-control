@@ -169,6 +169,12 @@ const ProductsSection: React.FC = () => {
                   </ul>
                   <Button 
                     className={`w-full ${tracker.popular ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-900 hover:bg-gray-800'}`}
+                    onClick={() => {
+                      const event = new CustomEvent('openSalesModal', { 
+                        detail: { productName: tracker.name, source: 'products' } 
+                      });
+                      window.dispatchEvent(event);
+                    }}
                   >
                     Order Now
                   </Button>
@@ -211,7 +217,16 @@ const ProductsSection: React.FC = () => {
                   <CardContent>
                     <div className="flex justify-between items-center">
                       <span className="text-lg font-bold text-blue-600">{product.price}</span>
-                      <Button variant="outline" size="sm">
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        onClick={() => {
+                          const event = new CustomEvent('openSalesModal', { 
+                            detail: { productName: product.name, source: 'products' } 
+                          });
+                          window.dispatchEvent(event);
+                        }}
+                      >
                         Enquire
                       </Button>
                     </div>
@@ -231,10 +246,26 @@ const ProductsSection: React.FC = () => {
             We offer customized fleet management solutions tailored to your specific business needs
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-blue-600 hover:bg-blue-700">
+            <Button 
+              className="bg-blue-600 hover:bg-blue-700"
+              onClick={() => {
+                const event = new CustomEvent('openSalesModal', { 
+                  detail: { source: 'products-cta' } 
+                });
+                window.dispatchEvent(event);
+              }}
+            >
               Request Quote
             </Button>
-            <Button variant="outline">
+            <Button 
+              variant="outline"
+              onClick={() => {
+                const event = new CustomEvent('openConsultationModal', { 
+                  detail: { source: 'products-cta' } 
+                });
+                window.dispatchEvent(event);
+              }}
+            >
               Schedule Consultation
             </Button>
           </div>

@@ -13,6 +13,8 @@ import AdminLogin from "./pages/admin/AdminLogin";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import EnquiriesPage from "./pages/admin/EnquiriesPage";
+import ConsultationsPage from "./pages/admin/ConsultationsPage";
+import SalesPage from "./pages/admin/SalesPage";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 
 const queryClient = new QueryClient();
@@ -33,10 +35,11 @@ const App = () => (
                 <AdminLayout />
               </ProtectedRoute>
             }>
+              <Route index element={<AdminDashboard />} />
               <Route path="dashboard" element={<AdminDashboard />} />
               <Route path="enquiries" element={<EnquiriesPage />} />
-              <Route path="consultations" element={<div>Consultations - Coming Soon</div>} />
-              <Route path="sales" element={<div>Sales - Coming Soon</div>} />
+              <Route path="consultations" element={<ConsultationsPage />} />
+              <Route path="sales" element={<SalesPage />} />
               <Route path="meetings" element={<div>Meetings - Coming Soon</div>} />
               <Route path="settings" element={<div>Settings - Coming Soon</div>} />
             </Route>
