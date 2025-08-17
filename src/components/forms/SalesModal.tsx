@@ -44,17 +44,27 @@ const SalesModal: React.FC<SalesModalProps> = ({
     setLoading(true);
 
     try {
-      await addDoc(collection(db, 'sales'), {
+      console.log('Submitting sales data:', formData);
+      console.log('Source:', source);
+      console.log('Product name:', productName);
+      console.log('Plan name:', planName);
+      
+      const salesData = {
         ...formData,
         status: 'new',
         source,
         createdAt: Timestamp.now(),
-      });
+      };
+      
+      console.log('Final sales data to submit:', salesData);
+      
+      await addDoc(collection(db, 'sales'), salesData);
 
       const message = formData.requestType === 'product-enquiry' 
         ? 'Product enquiry submitted successfully! Our sales team will contact you soon.'
         : 'Quote request submitted successfully! We will prepare a custom quote for you.';
       
+      console.log('Sales request submitted successfully');
       toast.success(message);
       setFormData({
         name: '',
@@ -72,6 +82,7 @@ const SalesModal: React.FC<SalesModalProps> = ({
       onClose();
     } catch (error) {
       console.error('Error submitting sales request:', error);
+      console.error('Error details:', error.message);
       toast.error('Failed to submit request. Please try again.');
     } finally {
       setLoading(false);

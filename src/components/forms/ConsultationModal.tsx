@@ -34,13 +34,21 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
     setLoading(true);
 
     try {
-      await addDoc(collection(db, 'consultations'), {
+      console.log('Submitting consultation data:', formData);
+      console.log('Source:', source);
+      
+      const consultationData = {
         ...formData,
         status: 'new',
         source,
         createdAt: Timestamp.now(),
-      });
+      };
+      
+      console.log('Final consultation data to submit:', consultationData);
+      
+      await addDoc(collection(db, 'consultations'), consultationData);
 
+      console.log('Consultation submitted successfully');
       toast.success('Consultation request submitted successfully! We will contact you soon.');
       setFormData({
         name: '',
@@ -56,6 +64,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
       onClose();
     } catch (error) {
       console.error('Error submitting consultation:', error);
+      console.error('Error details:', error.message);
       toast.error('Failed to submit consultation request. Please try again.');
     } finally {
       setLoading(false);
