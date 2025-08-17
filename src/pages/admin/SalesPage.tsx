@@ -66,12 +66,15 @@ const SalesPage: React.FC = () => {
   };
 
   if (loading) {
+    console.log('Sales page: Loading...');
     return (
       <div className="flex items-center justify-center min-h-[400px]">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
       </div>
     );
   }
+
+  console.log('Sales page: Loaded with', sales.length, 'sales');
 
   return (
     <div className="space-y-6">
