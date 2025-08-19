@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-// import { supabase } from '@/lib/supabase';
+import { addDoc, collection, Timestamp } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 import { toast } from 'sonner';
 
 interface SalesModalProps {
@@ -52,25 +53,12 @@ const SalesModal: React.FC<SalesModalProps> = ({
         ...formData,
         status: 'new',
         source,
-        created_at: new Date().toISOString(),
+        createdAt: Timestamp.now(),
       };
       
       console.log('Final sales data to submit:', salesData);
       
-      // TODO: Connect to Supabase through native integration
-      // const { error } = await supabase
-      //   .from('sales')
-      //   .insert([salesData]);
-      // 
-      // if (error) throw error;
-
-      // Temporary: Just log the data until Supabase is connected
-      console.log('Sales enquiry submitted (saved locally):', salesData);
-      
-      // Store temporarily in localStorage
-      const existingData = JSON.parse(localStorage.getItem('sales') || '[]');
-      existingData.push({ ...salesData, id: Date.now() });
-      localStorage.setItem('sales', JSON.stringify(existingData));
+      await addDoc(collection(db, 'sales'), salesData);
 
       const message = formData.requestType === 'product-enquiry' 
         ? 'Product enquiry submitted successfully! Our sales team will contact you soon.'

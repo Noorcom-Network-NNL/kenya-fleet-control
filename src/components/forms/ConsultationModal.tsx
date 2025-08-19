@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-// import { supabase } from '@/lib/supabase';
+import { addDoc, collection, Timestamp } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 import { toast } from 'sonner';
 
 interface ConsultationModalProps {
@@ -40,25 +41,12 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
         ...formData,
         status: 'new',
         source,
-        created_at: new Date().toISOString(),
+        createdAt: Timestamp.now(),
       };
       
       console.log('Final consultation data to submit:', consultationData);
       
-      // TODO: Connect to Supabase through native integration
-      // const { error } = await supabase
-      //   .from('consultations')
-      //   .insert([consultationData]);
-      // 
-      // if (error) throw error;
-
-      // Temporary: Just log the data until Supabase is connected
-      console.log('Consultation submitted (saved locally):', consultationData);
-      
-      // Store temporarily in localStorage
-      const existingData = JSON.parse(localStorage.getItem('consultations') || '[]');
-      existingData.push({ ...consultationData, id: Date.now() });
-      localStorage.setItem('consultations', JSON.stringify(existingData));
+      await addDoc(collection(db, 'consultations'), consultationData);
 
       console.log('Consultation submitted successfully');
       toast.success('Consultation request submitted successfully! We will contact you soon.');
