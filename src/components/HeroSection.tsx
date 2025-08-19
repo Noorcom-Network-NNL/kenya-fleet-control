@@ -10,17 +10,17 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ onGetDemo }) => {
   return (
-    <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-red-600 text-white py-20">
+    <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-red-600 text-white py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
             <Badge className="bg-white/20 text-white border-white/30 mb-6">
               🇰🇪 Kenya's Most Trusted Fleet Tracker
             </Badge>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6">
               Professional GPS Tracking & Fleet Management
             </h1>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-lg sm:text-xl text-blue-100 mb-8">
               Premium Teltonika devices with FREE installation, 1-year free software, and 24/7 support. 
               Join 400+ Kenyan businesses already saving 25% on fuel costs with our proven solutions.
             </p>
@@ -40,7 +40,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onGetDemo }) => {
             </div>
           </div>
           <div className="relative">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="text-blue-100">Fleet Overview</span>

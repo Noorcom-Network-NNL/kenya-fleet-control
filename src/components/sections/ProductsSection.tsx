@@ -111,14 +111,14 @@ const ProductsSection: React.FC = () => {
   ];
 
   return (
-    <section id="products" className="py-20 bg-gray-50">
+    <section id="products" className="py-16 sm:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Our Product Portfolio
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg sm:text-xl text-gray-600">
             Professional GPS tracking devices and fleet management solutions
           </p>
         </div>
@@ -126,15 +126,15 @@ const ProductsSection: React.FC = () => {
         {/* Teltonika Trackers */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
               Teltonika GPS Trackers
             </h3>
-            <p className="text-lg text-gray-600">
+            <p className="text-base sm:text-lg text-gray-600">
               Premium European-made tracking devices with advanced features
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {teltonikaTrackers.map((tracker, index) => (
               <Card key={index} className={`border-0 shadow-lg relative hover:shadow-xl transition-shadow ${tracker.popular ? 'ring-2 ring-blue-600' : ''}`}>
                 {tracker.popular && (
@@ -187,15 +187,15 @@ const ProductsSection: React.FC = () => {
         {/* Additional Products */}
         <div>
           <div className="text-center mb-12">
-            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
               Complete Fleet Solutions
             </h3>
-            <p className="text-lg text-gray-600">
+            <p className="text-base sm:text-lg text-gray-600">
               Additional products and services to enhance your fleet management
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {additionalProducts.map((product, index) => {
               const IconComponent = product.icon;
               return (
@@ -238,7 +238,7 @@ const ProductsSection: React.FC = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 text-center bg-white rounded-lg p-8 shadow-lg">
+        <div className="mt-16 text-center bg-white rounded-lg p-6 sm:p-8 shadow-lg">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
             Need Custom Solutions?
           </h3>

@@ -54,38 +54,44 @@ export function AdminSidebar() {
   };
 
   return (
-    <Sidebar collapsible="icon">
-      <SidebarContent>
-        <div className="p-4">
-          {!collapsed && <Logo className="mb-4" />}
+    <Sidebar collapsible="icon" className="border-r">
+      <SidebarContent className="flex flex-col h-full">
+        <div className="p-4 border-b">
+          {!collapsed && <Logo className="mb-0" />}
+          {collapsed && (
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-red-600 rounded flex items-center justify-center">
+              <span className="text-white text-sm font-bold">N</span>
+            </div>
+          )}
         </div>
-        
-        <SidebarGroup>
-          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {menuItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <NavLink to={item.url} className={getNavCls}>
-                      <item.icon className="h-4 w-4" />
-                      {!collapsed && <span className="ml-2">{item.title}</span>}
-                    </NavLink>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        <div className="flex-1">
+          <SidebarGroup>
+            <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {menuItems.map((item) => (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild>
+                      <NavLink to={item.url} className={getNavCls}>
+                        <item.icon className="h-4 w-4 flex-shrink-0" />
+                        {!collapsed && <span className="ml-2 truncate">{item.title}</span>}
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </div>
 
-        <div className="mt-auto p-4">
+        <div className="p-4 border-t mt-auto">
           <Button 
             variant="outline" 
             onClick={handleLogout}
-            className="w-full"
+            className="w-full justify-start"
             size={collapsed ? 'icon' : 'default'}
           >
-            <LogOut className="h-4 w-4" />
+            <LogOut className="h-4 w-4 flex-shrink-0" />
             {!collapsed && <span className="ml-2">Logout</span>}
           </Button>
         </div>

@@ -13,14 +13,14 @@ const BenefitsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
               Proven Results for Kenyan Businesses
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-lg sm:text-xl text-gray-600 mb-8">
               Join over 500+ businesses across Kenya who have transformed their fleet operations with NFMS.
             </p>
             <div className="space-y-4">
@@ -34,7 +34,7 @@ const BenefitsSection: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="bg-gradient-to-br from-blue-50 to-red-50 rounded-2xl p-8">
+          <div className="bg-gradient-to-br from-blue-50 to-red-50 rounded-2xl p-6 sm:p-8">
             <div className="text-center mb-6">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">ROI Calculator</h3>
               <p className="text-gray-600">See your potential savings</p>
